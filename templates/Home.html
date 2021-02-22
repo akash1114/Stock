@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="width: 800px; margin: 0 auto;">
+    <span style="width: 800px; margin: 0 auto;">
+    <h1 style="text-align: center;"> OHLC Hourly Data </h1></span>
+        <table class="table table-striped">
+           <tr>
+               <td>
+                   Buy_And_Hold_Monthly_Return_Mean
+               </td>
+               <td>
+                   {{ result.0 }}
+               </td>
+           </tr>
+            <tr>
+               <td>
+                   Strategy_Monthly_return_Mean
+               </td>
+               <td>
+                   {{ result.1 }}
+               </td>
+           </tr>
+            <tr>
+               <td>
+                   Buy_And_Hold_Sharpe
+               </td>
+               <td>
+                   {{ result.2 }}
+               </td>
+           </tr>
+            <tr>
+               <td>
+                   Strategy_Sharpe
+               </td>
+               <td>
+                   {{ result.3 }}
+               </td>
+           </tr>
+            <tr>
+               <td>
+                   Buy_And_Hold_Monthly_Return_Min_Mean
+               </td>
+               <td>
+                   {{ result.4 }}
+               </td>
+           </tr>
+            <tr>
+               <td>
+                   Strategy_Monthly_return_Mid_Mean
+               </td>
+               <td>
+                   {{ result.5 }}
+               </td>
+           </tr>
+            <tr>
+               <td>
+                   Strategy_Mid_Sharpe
+               </td>
+               <td>
+                   {{ result.6 }}
+               </td>
+           </tr>
+            <tr>
+               <td>
+                   Strategy_Mid_Sharpe
+               </td>
+               <td>
+                   {{ result.7 }}
+               </td>
+           </tr>
+        </table>
+    {% csrf_token %}
+        <form action="/stock_data/home" method="post" enctype="multipart/form-data" >
+                 {% csrf_token %}
+            <input type="file"
+                   title="Upload excel file"
+                   name="excel_file"
+                   style="border: 1px solid black; padding: 5px;"
+                   required="required">
+            <p>
+            <input type="submit"
+                   value="Upload"
+                   style="border: 1px solid green; padding:5px; border-radius: 2px; cursor: pointer;">
+    </form>
+</div>
+</body>
+</html>
